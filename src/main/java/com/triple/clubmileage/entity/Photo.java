@@ -1,9 +1,6 @@
 package com.triple.clubmileage.entity;
 
-import lombok.AccessLevel;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -23,4 +20,10 @@ public class Photo {
 
     @ManyToOne(fetch = FetchType.LAZY)
     private Review review;
+
+    @Builder
+    public Photo(UUID id, Review review) {
+        this.id = id;
+        this.review = review;
+    }
 }

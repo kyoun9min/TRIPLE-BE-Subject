@@ -22,7 +22,7 @@ public class User {
     @Column(columnDefinition = "BINARY(16)")
     private UUID id;
 
-    private Long point;
+    private Integer point;
 
     @OneToMany(mappedBy = "user")
     private List<PointHistory> pointHistoryList;
@@ -32,7 +32,10 @@ public class User {
 
     public User(UUID id) {
         this.id = id;
-        this.point = 0L;
+        this.point = 0;
     }
 
+    public void addPoint(int point) {
+        this.point += point;
+    }
 }

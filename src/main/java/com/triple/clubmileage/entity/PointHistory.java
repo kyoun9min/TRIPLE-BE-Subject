@@ -1,9 +1,6 @@
 package com.triple.clubmileage.entity;
 
-import lombok.AccessLevel;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 
 import javax.persistence.*;
 
@@ -28,4 +25,12 @@ public class PointHistory {
 
     @Enumerated(EnumType.STRING)
     private String reason;
+
+    @Builder
+    public PointHistory(User user, String status, String detail, String reason) {
+        this.user = user;
+        this.status = status;
+        this.detail = detail;
+        this.reason = reason;
+    }
 }

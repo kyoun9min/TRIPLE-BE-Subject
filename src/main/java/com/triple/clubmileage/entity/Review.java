@@ -1,9 +1,6 @@
 package com.triple.clubmileage.entity;
 
-import lombok.AccessLevel;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -24,6 +21,8 @@ public class Review {
 
     private String content;
 
+    private Integer point;
+
     @OneToMany(mappedBy = "review")
     private List<Photo> photoList;
 
@@ -32,4 +31,14 @@ public class Review {
 
     @ManyToOne(fetch = FetchType.LAZY)
     private Place place;
+
+    @Builder
+    public Review(UUID id, String content, Integer point, List<Photo> photoList, User user, Place place) {
+        this.id = id;
+        this.content = content;
+        this.point = point;
+        this.photoList = photoList;
+        this.user = user;
+        this.place = place;
+    }
 }
