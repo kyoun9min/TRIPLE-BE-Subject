@@ -67,8 +67,7 @@ public class ReviewService {
         Review review = reviewRepository.findById(eventDTO.getReviewId())
                 .orElseThrow(()->new HttpClientErrorException(HttpStatus.BAD_REQUEST));
 
-        List<Photo> photoList = photoService.getPhotoList(eventDTO.getAttachedPhotoIds());
-        review.updateReview(eventDTO, photoList);
+        photoService.create(eventDTO);
 
         // 글만 있는데 사진 추가 +1
         if (review.getContent().length() > 0 && review.getPhotoNumber() == 0 && eventDTO.getAttachedPhotoIds().size() > 0) {
@@ -79,7 +78,7 @@ public class ReviewService {
             pointHistoryService.attachPhoto(user);
         }
 
-        // 사진 모두 삭제
+        // 사진 모두 삭제 -1
         if (review.getPhotoNumber() > 0 && eventDTO.getAttachedPhotoIds().size() == 0) {
             // 유저 -1, 리뷰 -1, 포인트 히스토리
             userService.deductionPoint(eventDTO.getUserId(), 1);
@@ -87,6 +86,10 @@ public class ReviewService {
             User user = userService.read(eventDTO.getUserId());
             pointHistoryService.deletePhoto(user);
         }
+
+        List<Photo> photoList = photoService.getPhotoList(eventDTO.getAttachedPhotoIds());
+        review.updateReview(eventDTO, photoList);
+        reviewRepository.save(review);
     }
 
     @Transactional(rollbackFor = Exception.class)

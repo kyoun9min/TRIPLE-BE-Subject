@@ -30,15 +30,15 @@ public class PointHistoryService {
 
         User user = userService.read(eventDTO.getUserId());
 
-        if (eventDTO.getContent().length() > 0) {
+        if (eventDTO.getContent().length() > 0) { // 내용 1자 이상 +1
             point += 1;
             writeText(user);
         }
-        if (eventDTO.getAttachedPhotoIds().size() > 0) {
+        if (eventDTO.getAttachedPhotoIds().size() > 0) { // 사진 1장 이상 +1
             point += 1;
             attachPhoto(user);
         }
-        if (placeService.isFirstReview(eventDTO.getPlaceId())) {
+        if (placeService.isFirstReview(eventDTO.getPlaceId())) { // 해당 장소의 첫 리뷰 +1
             point += 1;
             firstReview(user);
         }
