@@ -5,6 +5,7 @@ import com.triple.clubmileage.entity.Photo;
 import com.triple.clubmileage.entity.PointHistory;
 import com.triple.clubmileage.entity.Review;
 import com.triple.clubmileage.entity.User;
+import com.triple.clubmileage.exception.DuplicatedReviewException;
 import com.triple.clubmileage.repository.PhotoRepository;
 import com.triple.clubmileage.repository.PointHistoryRepository;
 import com.triple.clubmileage.repository.ReviewRepository;
@@ -102,5 +103,12 @@ public class ReviewService {
         userService.deductionPoint(eventDTO.getUserId(), point);
         pointHistoryService.deleteReview(user, point);
         reviewRepository.delete(review);
+    }
+
+    public void duplicateCheck(EventDTO eventDTO) {
+        if (reviewRepository.existsByPlaceIdAndUserId(eventDTO.getPlaceId(), eventDTO.getUserId())) {
+            throw new DuplicatedReviewException("이미 등록된 리뷰가 존재합니다.");
+        }
+
     }
 }

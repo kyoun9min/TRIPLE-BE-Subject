@@ -27,6 +27,7 @@ public class EventController {
 
     private void reviewParsing(EventDTO eventDTO) {
         if (eventDTO.getAction().equals(EventAction.ADD)) {
+            reviewService.duplicateCheck(eventDTO);
             reviewService.create(eventDTO);
         }
         else if (eventDTO.getAction().equals(EventAction.MOD)) {
