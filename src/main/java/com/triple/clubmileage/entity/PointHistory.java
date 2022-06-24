@@ -17,20 +17,17 @@ public class PointHistory {
     @ManyToOne(fetch = FetchType.LAZY)
     private User user;
 
-    @Enumerated(EnumType.STRING)
     private String status;
 
-    @Enumerated(EnumType.STRING)
-    private String detail;
+    private String value;
 
-    @Enumerated(EnumType.STRING)
     private String reason;
 
     @Builder
-    public PointHistory(User user, String status, String detail, String reason) {
+    public PointHistory(User user, String status, String value, String reason) {
         this.user = user;
         this.status = status;
-        this.detail = detail;
+        this.value = value;
         this.reason = reason;
     }
 }

@@ -18,13 +18,13 @@ public class EventDTO {
 
     private EventAction action;
 
-    private UUID reviewId;
+    private String reviewId;
 
     private String content;
 
-    private List<UUID> attachedPhotoIds;
+    private List<String> attachedPhotoIds;
 
-    private UUID userId;
+    private String userId;
 
-    private UUID placeId;
+    private String placeId;
 }

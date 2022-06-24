@@ -14,11 +14,11 @@ public class PlaceService {
 
     private final PlaceRepository placeRepository;
 
-    public Place read(UUID id) {
+    public Place read(String id) {
         return placeRepository.findById(id).get();
     }
 
-    public boolean isFirstReview(UUID id) {
+    public boolean isFirstReview(String id) {
         Place place = placeRepository.findById(id).get();
         if (place.getReviewList().isEmpty()) {
             return true;

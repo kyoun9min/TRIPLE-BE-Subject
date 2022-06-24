@@ -17,10 +17,10 @@ import java.util.UUID;
 public class User {
 
     @Id
-    @GeneratedValue(generator = "uuid2")
-    @GenericGenerator(name = "uuid2", strategy = "uuid2")
-    @Column(columnDefinition = "BINARY(16)")
-    private UUID id;
+//    @GeneratedValue(generator = "uuid2")
+//    @GenericGenerator(name = "uuid2", strategy = "uuid2")
+//    @Column(columnDefinition = "VARCHAR(36)")
+    private String id;
 
     private Integer point;
 
@@ -30,12 +30,16 @@ public class User {
     @OneToMany(mappedBy = "user")
     private List<Review> reviewList;
 
-    public User(UUID id) {
+    public User(String id) {
         this.id = id;
         this.point = 0;
     }
 
     public void addPoint(int point) {
         this.point += point;
+    }
+
+    public void subPoint(int point) {
+        this.point -= point;
     }
 }

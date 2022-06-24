@@ -13,5 +13,5 @@ public enum PointStatus {
 
     private String title;
 
-    private String detail;
+    private String value;
 }
