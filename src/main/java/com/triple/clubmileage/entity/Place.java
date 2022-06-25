@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -19,4 +20,9 @@ public class Place {
 
     @OneToMany(mappedBy = "place")
     private List<Review> reviewList;
+
+    public Place(String id) {
+        this.id = id;
+        reviewList = new ArrayList<>();
+    }
 }

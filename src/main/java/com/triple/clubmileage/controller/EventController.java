@@ -1,5 +1,6 @@
 package com.triple.clubmileage.controller;
 
+import com.triple.clubmileage.component.DummyObjectInit;
 import com.triple.clubmileage.dto.EventDTO;
 import com.triple.clubmileage.enumclass.EventAction;
 import com.triple.clubmileage.enumclass.EventType;
@@ -17,8 +18,13 @@ public class EventController {
 
     private final ReviewService reviewService;
 
+    private final DummyObjectInit dummyObjectInit;
+
     @PostMapping("/events")
     public ResponseEntity eventHandler(@RequestBody EventDTO eventDTO) {
+
+        dummyObjectInit.init(eventDTO);
+
         if (eventDTO.getType().equals(EventType.REVIEW)) {
             reviewParsing(eventDTO);
         }
