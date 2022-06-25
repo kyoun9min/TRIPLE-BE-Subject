@@ -13,7 +13,7 @@ import java.util.List;
 @ToString(exclude = "reviewList")
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class Place {
+public class Place extends BaseTimeEntity {
 
     @Id
     private String id;

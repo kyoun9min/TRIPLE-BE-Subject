@@ -11,7 +11,7 @@ import java.util.List;
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Table(indexes = @Index(name = "idx_user", columnList = "user_id, place_id"))
-public class Review {
+public class Review extends BaseTimeEntity {
 
     @Id
     private String id;

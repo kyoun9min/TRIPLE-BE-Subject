@@ -8,7 +8,7 @@ import javax.persistence.*;
 @ToString(exclude = "review")
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class Photo {
+public class Photo extends BaseTimeEntity {
 
     @Id
     private String id;

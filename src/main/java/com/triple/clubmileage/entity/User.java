@@ -12,7 +12,7 @@ import java.util.List;
 @ToString(exclude = {"pointHistoryList", "reviewList"})
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class User {
+public class User extends BaseTimeEntity {
 
     @Id
     private String id;
