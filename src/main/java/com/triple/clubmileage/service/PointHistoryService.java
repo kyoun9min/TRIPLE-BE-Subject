@@ -6,13 +6,9 @@ import com.triple.clubmileage.entity.User;
 import com.triple.clubmileage.enumclass.PointReason;
 import com.triple.clubmileage.enumclass.PointStatus;
 import com.triple.clubmileage.repository.PointHistoryRepository;
-import com.triple.clubmileage.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.HttpClientErrorException;
 
-import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor

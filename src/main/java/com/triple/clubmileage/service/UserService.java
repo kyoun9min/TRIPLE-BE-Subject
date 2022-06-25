@@ -1,14 +1,11 @@
 package com.triple.clubmileage.service;
 
 import com.triple.clubmileage.entity.User;
+import com.triple.clubmileage.exception.UserNotFoundException;
 import com.triple.clubmileage.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.HttpClientErrorException;
 
-import java.util.Optional;
-import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
@@ -18,7 +15,7 @@ public class UserService {
     
     public User read(String id) {
         return userRepository.findById(id)
-                .orElseThrow(() -> new HttpClientErrorException(HttpStatus.BAD_REQUEST));
+                .orElseThrow(() -> new UserNotFoundException("해당 유저가 존재하지 않습니다."));
     }
 
     public void savePoint(String id, int point) {

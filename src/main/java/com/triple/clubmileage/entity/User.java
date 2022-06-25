@@ -4,11 +4,9 @@ import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
-import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.util.List;
-import java.util.UUID;
 
 @Entity
 @ToString(exclude = {"pointHistoryList", "reviewList"})
@@ -17,9 +15,6 @@ import java.util.UUID;
 public class User {
 
     @Id
-//    @GeneratedValue(generator = "uuid2")
-//    @GenericGenerator(name = "uuid2", strategy = "uuid2")
-//    @Column(columnDefinition = "VARCHAR(36)")
     private String id;
 
     private Integer point;

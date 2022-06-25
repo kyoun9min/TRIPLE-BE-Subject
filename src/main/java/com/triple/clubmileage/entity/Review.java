@@ -2,12 +2,9 @@ package com.triple.clubmileage.entity;
 
 import com.triple.clubmileage.dto.EventDTO;
 import lombok.*;
-import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
 
 @Entity
 @ToString(exclude = {"photoList", "user", "place"})
@@ -17,9 +14,6 @@ import java.util.UUID;
 public class Review {
 
     @Id
-//    @GeneratedValue(generator = "uuid2")
-//    @GenericGenerator(name = "uuid2", strategy = "uuid2")
-//    @Column(columnDefinition = "VARCHAR(36)")
     private String id;
 
     private String content;
