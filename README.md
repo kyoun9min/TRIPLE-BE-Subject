@@ -43,6 +43,7 @@ POST /events
 
 ### 리뷰 생성
 - 리뷰가 생성됩니다.
+- 한 사용자는 같은 장소에 1개의 리뷰만 작성 가능합니다.
 - 1자 이상 텍스트 작성 시 +1점이 부여됩니다.
 - 1장 이상 사진 첨부 시 +1점이 부여됩니다.
 - 특정 장소에 작성한 첫 리뷰일 시 +1점이 부여됩니다.
@@ -58,7 +59,7 @@ POST /events
 - 현재 유저가 보유한 총 포인트가 조회됩니다.
 - 포인트 증감이력은 point_history 테이블에 저장됩니다.
 
-![image](https://user-images.githubusercontent.com/60173868/175761424-e20ce26d-79aa-4e93-84a4-c08776160dbd.png)
+![image](https://user-images.githubusercontent.com/60173868/175782296-4c6643a4-3aaa-47c1-8043-9832a9d38115.png)
 
 
 # ERD
