@@ -74,7 +74,7 @@ public class ReviewService {
         }
 
         // 사진 모두 삭제 -1
-        if (review.getPhotoNumber() > 0 && eventDTO.getAttachedPhotoIds().size() == 0) {
+        if (review.getContent().length() > 0 && review.getPhotoNumber() > 0 && eventDTO.getAttachedPhotoIds().size() == 0) {
             // 유저 -1, 리뷰 -1, 포인트 히스토리
             userService.deductionPoint(eventDTO.getUserId(), 1);
             review.subPoint(1);
