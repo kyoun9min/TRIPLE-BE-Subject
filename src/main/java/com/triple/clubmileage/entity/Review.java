@@ -13,6 +13,7 @@ import java.util.UUID;
 @ToString(exclude = {"photoList", "user", "place"})
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
+@Table(indexes = @Index(name = "idx_user", columnList = "user_id, place_id"))
 public class Review {
 
     @Id

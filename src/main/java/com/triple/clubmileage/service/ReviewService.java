@@ -34,6 +34,7 @@ public class ReviewService {
 
     private final PlaceService placeService;
 
+    @Transactional(rollbackFor = Exception.class)
     public void create(EventDTO eventDTO) {
 
         int point = 0;

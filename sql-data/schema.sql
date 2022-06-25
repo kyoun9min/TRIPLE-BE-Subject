@@ -39,6 +39,8 @@ create table user
     primary key (id)
 ) engine = InnoDB;
 
+create index idx_user on review (user_id, place_id);
+
 alter table photo
     add constraint photo_review
         foreign key (review_id) references review (id);
